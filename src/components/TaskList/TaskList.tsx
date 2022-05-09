@@ -3,12 +3,15 @@ import { Task } from '../Task/Task';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTodos } from '../../features/tasks/taskSlice';
+import { filterStatus } from '../../features/tasks/filterTaskSlice';
+import { TaskInterface } from '../Task/Task';
+import { filteredTodosSelector } from '../../features/tasks/filterTaskSlice';
 
 export const TaskList = () => {
   const dispatch = useDispatch();
-  // const [tasks, setTasks] = useState<any[]>([]);
-  const todos = useSelector((store: any) => store.todos);
-  console.log('todos', todos.list);
+  const todos = useSelector(filteredTodosSelector);
+  console.log(todos);
+  let filter = useSelector((store: any) => store.filter.value);
 
   useEffect(() => {
     dispatch(getTodos());
@@ -16,7 +19,7 @@ export const TaskList = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap="10px">
-      {todos.list.map((task: any) => {
+      {todos.map((task: any) => {
         return (
           <Task
             key={task.id}

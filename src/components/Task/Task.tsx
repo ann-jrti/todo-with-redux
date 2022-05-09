@@ -37,7 +37,7 @@ export const Task = (props: TaskInterface) => {
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Checkbox
           onClick={(e) => handleCheck(props.id)}
-          defaultChecked={props.completed}
+          checked={props.completed}
         />
         <Typography
           sx={{ textDecoration: props.completed ? 'line-through' : 'none' }}

@@ -26,7 +26,12 @@ const todoSlice = createSlice({
     setTaskAsCompleted: (state, action) => {
       const id = action.payload;
       const found = state.list.find((task: TaskInterface) => task.id === id);
-      found.completed = true;
+      found.completed = !found.completed;
+    },
+    clearCompleted: (state) => {
+      console.log(state.list);
+      state.list = state.list.filter((task: any) => !task.completed);
+      console.log(state.list);
     },
   },
   extraReducers: (builder) => {
@@ -43,6 +48,7 @@ const todoSlice = createSlice({
       });
   },
 });
-export const { createNewTask, setTaskAsCompleted } = todoSlice.actions;
+export const { createNewTask, setTaskAsCompleted, clearCompleted } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

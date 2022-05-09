@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { TaskList } from '../TaskList/TaskList';
 import { CreateTask } from '../CreateTask/CreateTask';
-import { ActionsBar } from '../ActionsBar/Board';
+import { ActionsBar } from '../ActionsBar/ActionsBar';
 
 const boardStyle = {
   margin: '2rem',

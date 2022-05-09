@@ -1,4 +1,4 @@
-import { InputBase, Box } from '@mui/material';
+import { InputBase, Box, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,7 +16,6 @@ const inputContainerStyle = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  //   bgcolor: 'rgb(211, 211, 211)',
 };
 
 const buttonStyle = {
@@ -45,10 +44,10 @@ export const CreateTask = () => {
   return (
     <>
       <Box sx={inputContainerStyle}>
-        <AddCircleOutlineIcon
-          onClick={handleSubmit}
-          style={buttonStyle}
-        ></AddCircleOutlineIcon>
+        <Button onClick={handleSubmit} style={buttonStyle}>
+          <AddCircleOutlineIcon></AddCircleOutlineIcon>
+        </Button>
+
         <form onSubmit={handleSubmit}>
           <InputBase
             onChange={(e) => setNewTaskTitle(e.target.value)}
