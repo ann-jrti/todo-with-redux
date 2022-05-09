@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TaskInterface } from '../../components/Task/Task';
+//@ts-ignore
+import { defineState } from 'redux-localstore';
 
 // move to .env
 const numberOfTasks: number = 6;
@@ -10,10 +12,10 @@ export const getTodos: any = createAsyncThunk('todos/getTasks', async () => {
   return response.json();
 });
 
-const initialState: any = {
+const initialState: any = defineState({
   list: [],
   status: null,
-};
+})('todos');
 
 const todoSlice = createSlice({
   name: 'todos',

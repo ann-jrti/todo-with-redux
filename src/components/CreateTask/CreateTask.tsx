@@ -34,7 +34,7 @@ export const CreateTask = () => {
     e.preventDefault();
     const newTask: TaskInterface = {
       userId: 11,
-      id: todos[todos.length - 1].id + 1,
+      id: Math.random(),
       title: newTaskTitle,
       completed: false,
     };

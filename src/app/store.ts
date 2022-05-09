@@ -1,6 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import todoReducer from '../features/tasks/taskSlice';
 import filterReducer from '../features/tasks/filterTaskSlice';
+//@ts-ignore
+import storeSynchronize from 'redux-localstore';
 
 export const store = configureStore({
   reducer: {
@@ -8,6 +10,8 @@ export const store = configureStore({
     filter: filterReducer,
   },
 });
+
+storeSynchronize(store);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
