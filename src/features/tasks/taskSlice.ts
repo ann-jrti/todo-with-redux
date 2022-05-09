@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { TaskInterface } from '../../components/Task/Task';
 
+// move to .env
 const numberOfTasks: number = 6;
 const todosAPI: string = `https://jsonplaceholder.typicode.com/todos?_start=0&_limit=${numberOfTasks}`;
 
@@ -16,7 +18,17 @@ const initialState: any = {
 const todoSlice = createSlice({
   name: 'todos',
   initialState,
-  reducers: {},
+  reducers: {
+    createNewTask: (state, action) => {
+      const newTask = action.payload;
+      state.list.push(newTask);
+    },
+    setTaskAsCompleted: (state, action) => {
+      const id = action.payload;
+      const found = state.list.find((task: TaskInterface) => task.id === id);
+      found.completed = true;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getTodos.pending, (state) => {
@@ -31,5 +43,6 @@ const todoSlice = createSlice({
       });
   },
 });
+export const { createNewTask, setTaskAsCompleted } = todoSlice.actions;
 
 export default todoSlice.reducer;

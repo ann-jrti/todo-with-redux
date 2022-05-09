@@ -20,7 +20,7 @@ export const TaskList = () => {
         return (
           <Task
             key={task.id}
-            user={task.userId}
+            userId={task.userId}
             id={task.id}
             title={task.title}
             completed={task.completed}

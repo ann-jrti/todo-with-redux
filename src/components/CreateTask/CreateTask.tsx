@@ -1,6 +1,9 @@
 import { InputBase, Box } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { TaskInterface } from '../Task/Task';
+import { createNewTask } from '../../features/tasks/taskSlice';
 
 const inputStyle = {
   bgcolor: 'rgb(211, 211, 211)',
@@ -16,18 +19,43 @@ const inputContainerStyle = {
   //   bgcolor: 'rgb(211, 211, 211)',
 };
 
+const buttonStyle = {
+  fill: 'green',
+  ':hover': {
+    color: '#ffffff',
+  },
+};
+
 export const CreateTask = () => {
-  const [newTask, setNewTask] = useState({});
+  const [newTaskTitle, setNewTaskTitle] = useState('');
+  const todos = useSelector((store: any) => store.todos.list);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const newTask: TaskInterface = {
+      userId: 11,
+      id: todos[todos.length - 1].id + 1,
+      title: newTaskTitle,
+      completed: false,
+    };
+
+    dispatch(createNewTask(newTask));
+  };
   return (
     <>
       <Box sx={inputContainerStyle}>
         <AddCircleOutlineIcon
-          style={{ fill: 'rgb(53, 54, 144)' }}
+          onClick={handleSubmit}
+          style={buttonStyle}
         ></AddCircleOutlineIcon>
-        <InputBase
-          placeholder="Create a new todo..."
-          sx={inputStyle}
-        ></InputBase>
+        <form onSubmit={handleSubmit}>
+          <InputBase
+            onChange={(e) => setNewTaskTitle(e.target.value)}
+            placeholder="Create a new todo..."
+            sx={inputStyle}
+          ></InputBase>
+        </form>
       </Box>
     </>
   );
