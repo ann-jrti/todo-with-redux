@@ -1,6 +1,6 @@
 import { InputBase, Box, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { TaskInterface } from '../Task/Task';
 import { createNewTask } from '../../features/tasks/taskSlice';
@@ -26,7 +26,7 @@ const buttonStyle = {
   marginRight: '-.5rem',
 };
 
-export const CreateTask = () => {
+export const CreateTask: React.FC = () => {
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const dispatch = useDispatch();
 

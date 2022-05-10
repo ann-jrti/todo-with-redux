@@ -15,7 +15,7 @@ const boardStyle = {
   boxShadow: '10px 10px 50px #79959a',
 };
 
-export const Board = () => {
+export const Board: React.FC = () => {
   return (
     <Box sx={boardStyle}>
       <Typography

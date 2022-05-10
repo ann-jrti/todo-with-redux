@@ -36,7 +36,7 @@ const StyledBtn = styled(Button)`
   }
 `;
 
-export const ActionsBar = () => {
+export const ActionsBar: React.FC = () => {
   const todos = useSelector(filteredTodosSelector);
   const dispatch = useDispatch();
 
