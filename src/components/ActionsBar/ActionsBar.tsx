@@ -2,7 +2,6 @@ import { Box, Button, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCompleted } from '../../features/tasks/taskSlice';
-import { TaskInterface } from '../Task/Task';
 import { setFilterStatus } from '../../features/tasks/filterTaskSlice';
 import { filteredTodosSelector } from '../../features/tasks/filterTaskSlice';
 
@@ -12,20 +11,27 @@ const barStyle = {
   gap: '3rem',
   justifyContent: 'center',
   alignItems: 'center',
-  alignSelf: 'flex-end',
+  bgcolor: '#785964',
+  height: '2rem',
+  width: '100vw',
+  padding: '1.5rem',
+  borderRadius: '5px',
+  marginTop: '.5rem',
+  color: 'white',
 };
 
 const StyledBtn = styled(Button)`
   color: black;
   font-weight: bold;
   font-size: 0.8rem;
+  color: white;
 
   &:hover {
-    background-color: blue;
-    color: white;
+    background-color: #d5c7bc;
+    color: #454545;
   }
   &:focus {
-    color: red;
+    color: #93b7be;
   }
 `;
 
@@ -35,8 +41,8 @@ export const ActionsBar = () => {
 
   return (
     <Box sx={barStyle}>
-      <Typography>{todos.length} items left</Typography>
-      <Box sx={{ display: 'flex', gap: '1rem' }}>
+      <Typography fontStyle="italic">{todos.length} items left</Typography>
+      <Box sx={{ display: 'flex', gap: '.5rem' }}>
         <StyledBtn onClick={() => dispatch(setFilterStatus('none'))}>
           All
         </StyledBtn>
@@ -44,7 +50,7 @@ export const ActionsBar = () => {
           Pending
         </StyledBtn>
         <StyledBtn onClick={() => dispatch(setFilterStatus('completed'))}>
-          Completed
+          Done
         </StyledBtn>
       </Box>
 

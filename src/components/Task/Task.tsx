@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Box, Checkbox, Typography } from '@mui/material';
 import { setTaskAsCompleted } from '../../features/tasks/taskSlice';
 import { useDispatch } from 'react-redux';
+import styled from '@emotion/styled';
 
 export interface TaskInterface {
   userId: number;
@@ -16,32 +17,28 @@ const taskStyle = {
   justifyContent: 'flex-start',
   alignItems: 'center',
   padding: '.5rem',
-  width: '95%',
+  width: '100%',
   gap: '3rem',
   borderRadius: '.5rem',
   height: '3rem',
   textAlign: 'left',
+  color: '#785964',
 };
 
 export const Task = (props: TaskInterface) => {
   const dispatch = useDispatch();
-  const handleCheck = (id: any) => {
-    console.log('click', id);
-    dispatch(setTaskAsCompleted(id));
-  };
+
   return (
-    <Box
-      sx={taskStyle}
-      bgcolor={props.completed ? 'rgb(182, 209, 227)' : 'gainsboro'}
-    >
+    <Box sx={taskStyle} bgcolor={props.completed ? '#d5c7bc' : '#ecebe4'}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Checkbox
-          onClick={(e) => handleCheck(props.id)}
+          style={{ color: '#785964' }}
+          onClick={() => dispatch(setTaskAsCompleted(props.id))}
           checked={props.completed}
         />
         <Typography
           sx={{ textDecoration: props.completed ? 'line-through' : 'none' }}
-          color="black"
+          color="#454545"
         >
           {props.title}
         </Typography>
@@ -50,8 +47,8 @@ export const Task = (props: TaskInterface) => {
         [ Created by user {props.userId} ]
       </Typography>
       {props.completed ? (
-        <Typography fontStyle="italic" fontSize={'.8rem'}>
-          Completed
+        <Typography padding=".5rem" fontStyle="italic" fontSize={'.8rem'}>
+          Done
         </Typography>
       ) : (
         ''

@@ -12,7 +12,17 @@ code {
     monospace;
 }
 
-/* * {
-  color: rgb(53, 54, 144);
-  color: rgb(211, 211, 211)
-} */
+/* custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #93b7be;
+  margin: 25px 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #785964;
+}

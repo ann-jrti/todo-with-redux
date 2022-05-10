@@ -14,7 +14,7 @@ export const TaskList = () => {
   }, [dispatch]);
 
   return (
-    <Box display="flex" flexDirection="column" gap="10px">
+    <Box display="flex" alignItems="center" flexDirection="column" gap="10px">
       {todos.map((task: any) => {
         return (
           <Task

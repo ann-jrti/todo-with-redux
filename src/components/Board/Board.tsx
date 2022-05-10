@@ -1,24 +1,26 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { TaskList } from '../TaskList/TaskList';
 import { CreateTask } from '../CreateTask/CreateTask';
-import { ActionsBar } from '../ActionsBar/ActionsBar';
 
 const boardStyle = {
-  margin: '2rem',
+  margin: '1rem',
   display: 'flex',
   flexDirection: 'column',
-  bgcolor: 'rgb(245, 241, 241)',
-  width: '60%',
+  bgcolor: '#f1fffa',
+  width: 'auto',
   height: '70vh',
+  overflowY: 'scroll',
+  padding: '2rem',
+  borderRadius: '30px',
+  background: '#93b7be',
+  boxShadow: '25px 25px 60px #79959a',
 };
 
 export const Board = () => {
   return (
     <Box sx={boardStyle}>
-      <Typography>Todo List</Typography>
       <CreateTask></CreateTask>
       <TaskList></TaskList>
-      <ActionsBar></ActionsBar>
     </Box>
   );
 };
