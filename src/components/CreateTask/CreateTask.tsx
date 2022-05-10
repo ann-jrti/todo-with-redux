@@ -7,22 +7,23 @@ import { createNewTask } from '../../features/tasks/taskSlice';
 
 const inputStyle = {
   bgcolor: '#ecebe4',
-  width: 'auto',
+  width: '30vw',
   borderRadius: '.8rem',
   paddingLeft: '.6rem',
-  marginBottom: '1rem',
+  margin: '1rem 0',
 };
 
 const inputContainer = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  width: '50vw',
 };
 
 const buttonStyle = {
   border: 'none',
-  color: '#785964',
-  marginRight: '-1rem',
+  color: '#ecebe4',
+  marginRight: '-.5rem',
 };
 
 export const CreateTask = () => {
@@ -41,9 +42,9 @@ export const CreateTask = () => {
   };
   return (
     <Box sx={inputContainer}>
-      <Box marginBottom="15px">
+      <Box>
         <Button onClick={handleSubmit} sx={buttonStyle}>
-          <AddCircleOutlineIcon></AddCircleOutlineIcon>
+          <AddCircleOutlineIcon fontSize="large"></AddCircleOutlineIcon>
         </Button>
       </Box>
 
@@ -51,7 +52,7 @@ export const CreateTask = () => {
         <form onSubmit={handleSubmit}>
           <InputBase
             onChange={(e) => setNewTaskTitle(e.target.value)}
-            placeholder="Add a new todo..."
+            placeholder="Add a new to-do..."
             sx={inputStyle}
           ></InputBase>
         </form>

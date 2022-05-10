@@ -12,12 +12,13 @@ const barStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   bgcolor: '#785964',
-  height: '2rem',
+  height: '3rem',
   width: '100vw',
   padding: '1.5rem',
   borderRadius: '5px',
-  marginTop: '.5rem',
   color: 'white',
+  position: 'fixed',
+  bottom: '0',
 };
 
 const StyledBtn = styled(Button)`

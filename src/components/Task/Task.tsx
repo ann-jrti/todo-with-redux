@@ -1,9 +1,6 @@
-import * as React from 'react';
-import ReactDOM from 'react-dom';
 import { Box, Checkbox, Typography } from '@mui/material';
 import { setTaskAsCompleted } from '../../features/tasks/taskSlice';
 import { useDispatch } from 'react-redux';
-import styled from '@emotion/styled';
 
 export interface TaskInterface {
   userId: number;
@@ -14,13 +11,13 @@ export interface TaskInterface {
 
 const taskStyle = {
   display: 'flex',
-  justifyContent: 'flex-start',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '.5rem',
+  padding: '0 1rem',
   width: '100%',
-  gap: '3rem',
+  gap: '2rem',
   borderRadius: '.5rem',
-  height: '3rem',
+  height: 'auto',
   textAlign: 'left',
   color: '#785964',
 };

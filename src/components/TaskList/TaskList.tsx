@@ -11,7 +11,7 @@ export const TaskList = () => {
 
   useEffect(() => {
     if (todos.length === 0) dispatch(getTodos());
-  }, [dispatch]);
+  }, []);
 
   return (
     <Box display="flex" alignItems="center" flexDirection="column" gap="10px">
