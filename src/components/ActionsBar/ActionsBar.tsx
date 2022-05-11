@@ -42,7 +42,9 @@ export const ActionsBar: React.FC = () => {
 
   return (
     <Box sx={barStyle}>
-      <Typography fontStyle="italic">{todos.length} items left</Typography>
+      <Typography fontStyle="italic">
+        {todos.length} item{todos.length === 1 ? '' : 's'}
+      </Typography>
       <Box sx={{ display: 'flex', gap: '.5rem' }}>
         <StyledBtn onClick={() => dispatch(setFilterStatus('none'))}>
           All
@@ -57,7 +59,7 @@ export const ActionsBar: React.FC = () => {
 
       <Box>
         <StyledBtn onClick={() => dispatch(clearCompleted())}>
-          Clear Completed
+          Clear Done
         </StyledBtn>
       </Box>
     </Box>

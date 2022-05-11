@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 const titleBrownStyle = {
   fontWeight: 'bold',
-  color: '#785964',
+  color: '#d5c7bc',
   fontSize: '3rem',
   textTransform: 'uppercase',
   marginTop: '1rem',
@@ -10,7 +10,7 @@ const titleBrownStyle = {
 
 const titleWhiteStyle = {
   fontWeight: 'bold',
-  color: 'white',
+  color: '#785964',
   fontSize: '3rem',
   textTransform: 'uppercase',
   marginTop: '1.3rem',

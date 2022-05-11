@@ -39,7 +39,9 @@ export const CreateTask: React.FC = () => {
       completed: false,
     };
     dispatch(createNewTask(newTask));
+    setNewTaskTitle('');
   };
+
   return (
     <Box sx={inputContainer}>
       <Box>
@@ -51,6 +53,7 @@ export const CreateTask: React.FC = () => {
       <Box>
         <form onSubmit={handleSubmit}>
           <InputBase
+            value={newTaskTitle}
             onChange={(e) => setNewTaskTitle(e.target.value)}
             placeholder="Add a new to-do..."
             sx={inputStyle}

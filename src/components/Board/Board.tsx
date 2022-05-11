@@ -27,7 +27,7 @@ export const Board: React.FC = () => {
           fontSize: '1.5rem',
         }}
       >
-        My todos
+        My tasks
       </Typography>
       <TaskList></TaskList>
     </Box>
